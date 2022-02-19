@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App1.ViewModels"
+             x:Class="App1.Views.Page1">
+    <ContentPage.BindingContext>
+        <local:ViewModel1/>
+
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BindableLayout.ItemsSource="{Binding someData}">
+                <Button Text="Загрузить данные" Command="{Binding LoadData}"/>
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Label Text="{Binding title}" FontSize="30"  />
+                            <Label x:Name="complBool" Text="{Binding completed}" FontSize="20" TextColor="Gray" />
+                        </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
